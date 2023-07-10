@@ -3,11 +3,9 @@ import { animated, useSpring } from '@react-spring/three';
 import { useFrame } from '@react-three/fiber';
 import { Rocks } from './Rocks';
 
-export default function AnimatedCube({ position, remove }) {
+export default function AnimatedCube({ position, remove, randomMeshIndex, randomRotation, randomScale }) {
 
-  const randomMeshIndex = Math.floor(Math.random() * 10);
-  const randomRotation = Math.random() * Math.PI * 2;
-  const randomScale = Math.random() * 0.6
+
 
 
   const [animation, setAnimation] = useSpring(() => ({

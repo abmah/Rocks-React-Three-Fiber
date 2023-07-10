@@ -5,7 +5,7 @@ import * as THREE from "three";
 import AnimatedCube from "./AnimatedCube";
 import RockAudio from "./RockAudio";
 import { Canvas } from "@react-three/fiber";
-import Grass from "./Grass";
+
 
 let cubeIdCounter = 0;
 
@@ -16,11 +16,16 @@ export default function Experience() {
 
     const [newCubes, setNewCubes] = useState([]);
     const [removedCubes, setRemovedCubes] = useState([]);
-    const threshold = 120; // Minimum distance (in pixels) to create a new cube
+    const threshold = 20; // Minimum distance (in pixels) to create a new cube
     const distanceRef = useRef(0); // Reference to keep track of the distance moved
-    const maxCubeCount = 10; // Maximum number of cubes
+    const maxCubeCount = 50; // Maximum number of cubes
     const maxCubeCountRender = 10
     const [playAudio, setPlayAudio] = useState(false)
+
+
+    const randomMeshIndex = Math.floor(Math.random() * 10);
+    const randomRotation = Math.random() * Math.PI * 2;
+    const randomScale = Math.random() * 0.6
 
 
     const handleMouseMove = (event) => {
@@ -46,9 +51,9 @@ export default function Experience() {
                     position={[x, -0.4, z]}
                     key={cubeIdCounter++}
                     remove={false}
-                    randomMeshIndex={0}
-                    randomScale={0}
-                    randomRotation={0}
+                    randomMeshIndex={randomMeshIndex}
+                    randomScale={randomScale}
+                    randomRotation={randomRotation}
                 />
             );
             updatedCubes = [...updatedCubes, cube];
@@ -98,7 +103,7 @@ export default function Experience() {
                 {removedCubes.map((cube, index) =>
                     React.cloneElement(cube, { key: `removed-${index}` })
                 )}
-                {/* <Grass /> */}
+
                 <ambientLight />
             </Canvas >
             <RockAudio playAudio={playAudio} />
