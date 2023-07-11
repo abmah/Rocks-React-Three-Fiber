@@ -76,6 +76,7 @@ export default function Experience() {
                     far: 2000,
                     position: [-3, 3.5, 4]
                 }}
+                className="canva"
             >
                 {/* <OrbitControls />
                 <Perf position="top-left" /> */}

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Murmure';
+    src: url('../public/Le_Murmure-Regular_web.woff');
+}
+
 html,
 body,
 #root {
@@ -8,19 +13,24 @@ body,
     height: 100%;
     background: ivory;
 
+
 }
 
 canvas {
+    position: absolute;
+    z-index: 1;
     touch-action: none;
 }
 
+h1 {
 
-.htmlScreen iframe {
-    border: none;
-
-    width: 1024px;
-    height: 670px;
-
-    border-radius: 20px;
-    background-color: #000000;
+    line-height: 0;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    font-family: 'Murmure';
+    font-size: 30vw;
+    color: #dedede;
+    margin: 0;
+    pointer-events: none;
 }

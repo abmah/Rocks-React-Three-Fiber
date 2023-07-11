@@ -197,7 +197,7 @@ export function Rocks({ randomMeshIndex, randomRotation, randomScale }) {
   };
 
   return (
-    <group onClick={() => console.log('clicked')} position-y={randomScale - 0.1} scale={randomScale} rotation-y={randomRotation} >
+    <group position-y={randomScale - 0.1} scale={randomScale} rotation-y={randomRotation} >
       {getMeshByIndex(randomMeshIndex)}
     </group>
   );
