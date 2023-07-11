@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { OrbitControls, Environment, MeshReflectorMaterial } from "@react-three/drei";
 import { Perf } from "r3f-perf";
-import * as THREE from "three";
 import AnimatedCube from "./AnimatedCube";
-
 import { Canvas } from "@react-three/fiber";
 
 
@@ -76,11 +74,11 @@ export default function Experience() {
                     fov: 45,
                     near: 0.1,
                     far: 2000,
-                    position: [-3, 1.5, 4]
+                    position: [-3, 3.5, 4]
                 }}
             >
-                <OrbitControls />
-                <Perf position="top-left" />
+                {/* <OrbitControls />
+                <Perf position="top-left" /> */}
                 <Environment preset="city" />
                 <color args={["#695b5b"]} attach="background" />
 

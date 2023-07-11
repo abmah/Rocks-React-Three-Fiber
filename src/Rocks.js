@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
+
+
 export function Rocks({ randomMeshIndex, randomRotation, randomScale }) {
   const { nodes, materials } = useGLTF("/rocks3.glb");
 
