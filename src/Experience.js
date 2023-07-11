@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { OrbitControls, Environment, MeshReflectorMaterial } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import * as THREE from "three";
 import AnimatedCube from "./AnimatedCube";
-import RockAudio from "./RockAudio";
+
 import { Canvas } from "@react-three/fiber";
 
 
@@ -16,14 +16,14 @@ export default function Experience() {
 
     const [newCubes, setNewCubes] = useState([]);
     const [removedCubes, setRemovedCubes] = useState([]);
-    const threshold = 20; // Minimum distance (in pixels) to create a new cube
+    const threshold = 120; // Minimum distance (in pixels) to create a new cube
     const distanceRef = useRef(0); // Reference to keep track of the distance moved
-    const maxCubeCount = 50; // Maximum number of cubes
+    const maxCubeCount = 15; // Maximum number of cubes
     const maxCubeCountRender = 10
-    const [playAudio, setPlayAudio] = useState(false)
 
 
-    const randomMeshIndex = Math.floor(Math.random() * 10);
+
+    const randomMeshIndex = Math.floor(Math.random() * 15);
     const randomRotation = Math.random() * Math.PI * 2;
     const randomScale = Math.random() * 0.6
 
@@ -66,14 +66,8 @@ export default function Experience() {
         }
     };
 
-    useEffect(() => {
-        setPlayAudio(true)
-        console.log('do')
-        setTimeout(() => {
-            setPlayAudio(false)
-            console.log('yo')
-        }, 1000);
-    }, [cubeIdCounter])
+
+
 
     return (
         <>
@@ -86,7 +80,7 @@ export default function Experience() {
                 }}
             >
                 <OrbitControls />
-                {/* <Perf position="top-left" /> */}
+                <Perf position="top-left" />
                 <Environment preset="city" />
                 <color args={["#695b5b"]} attach="background" />
 
@@ -96,7 +90,8 @@ export default function Experience() {
                     position={[0, -0.5, 0]}
                 >
                     <planeGeometry args={[45, 45]} />
-                    <meshBasicMaterial side={THREE.DoubleSide} />
+                    <MeshReflectorMaterial
+                    />
                 </mesh>
 
                 {newCubes}
@@ -106,7 +101,7 @@ export default function Experience() {
 
                 <ambientLight />
             </Canvas >
-            <RockAudio playAudio={playAudio} />
+            {/* <RockAudio playAudio={playAudio} /> */}
         </>
     );
 }

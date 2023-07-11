@@ -6,7 +6,5 @@ import Experience from './Experience.js'
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
-
     <Experience />
-
 )

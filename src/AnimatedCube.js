@@ -28,6 +28,7 @@ export default function AnimatedCube({ position, remove, randomMeshIndex, random
         randomMeshIndex={randomMeshIndex}
         randomRotation={randomRotation}
         randomScale={randomScale}
+
       />
     </animated.group>
   );
